@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Cat {
 
-    String name;
-    Date date;
-    double weight;
-    String ownerName;
+    private String name;
+    private Date date;
+    private double weight;
+    private String ownerName;
 
     public Cat() {
     }
@@ -35,16 +35,8 @@ public class Cat {
         this.ownerName = ownerName;
     }
 
-    public String introduceYourself(){
+    @Override
+    public String toString(){
         return "My name is " + name + ", I was born " + date + ", I weigh " + weight + " and my owner name is " + ownerName;
     }
-
-    public String presentYourself2(){
-        return "My name is " + name + " and my owner name is " + ownerName;
-    }
-
-    public String presentYourself3(){
-        return "My name is " + name + ", i weigh " + String.valueOf(weight) + " and my owner name is " + ownerName;
-    }
-
 }

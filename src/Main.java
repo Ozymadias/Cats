@@ -8,7 +8,7 @@ public class Main {
         Cat cat = new Cat("Tilon", date, 6.9, "Minia");
         cat.setName("Pieszczoch");
 
-        System.out.println(cat.introduceYourself());
+        System.out.println(cat);
     }
 
 }

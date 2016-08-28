@@ -17,15 +17,34 @@ public class Interface {
     }
 
     public static void main(String[] args) {
-        Cat cat = new Cat();
-        System.out.println("What cat's name is?");
-        String name = getUserInput();
-        System.out.println("What cat's owner name is?");
-        String ownerName = getUserInput();
-        cat.setName(name);
-        cat.setOwnerName(ownerName);
-        System.out.println(cat.presentYourself2());
+        Cat cat = Interface2.getCat();
 
+        double weight = getWeight();
+        cat.setWeight(weight);
+
+        Date date = getDate();
+        cat.setDate(date);
+
+        System.out.println(cat);
+    }
+
+    private static Date getDate() {
+        System.out.println("What cat's date of birth is?");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        Date date;
+        do {
+            String dateAsString = getUserInput();
+            try {
+                date = sdf.parse(dateAsString);
+            } catch (ParseException pe) {
+                System.out.println("That is not a date!");
+                date = null;
+            }
+        } while (date == null);
+        return date;
+    }
+
+    private static double getWeight() {
         System.out.println("What cat's weight is?");
         double weight = 0.0;
         do {
@@ -36,22 +55,6 @@ public class Interface {
                 System.out.println("Weight must be double!");
             }
         } while (weight == 0.0);
-        cat.setWeight(weight);
-        System.out.println(cat.presentYourself3());
-
-        System.out.println("What cat's date of birth is?");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        Date date;
-        do {
-            String dateAsString = getUserInput();
-            try {
-                date = sdf.parse(dateAsString);
-            } catch (ParseException pe) {
-                System.out.println("Coś jest nie tak z formatem daty!");
-                date = null;
-            }
-        } while (date == null);
-        cat.setDate(date);
-        System.out.println(cat.introduceYourself());
+        return weight;
     }
 }
